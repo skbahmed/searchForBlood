@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="If you need any group of blood,no worry. Just come to our site and search for blood. Here you will find blood anywhere in Bangladesh. If you are interested of donating blood, create your profile with accurate information and be a human." >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SEARCH FOR BLOOD</title>
+    <!-- BANGLA FONT -->
+    <link rel="stylesheet" href="https://fonts.maateen.me/kalpurush/font.css">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- VENDORS FILE -->
+    <link rel="stylesheet" href="vendors/css/grid.css">
+    <link rel="stylesheet" href="vendors/css/normalize.css">
+    <!-- RECOURCES FILE -->
+    <link rel="stylesheet" href="recources/css/style.css">
+    <link rel="stylesheet" href="recources/css/responsive.css">
+</head>
+
+<body>
+
+    <!-- START HEADER SECTION-->
+
+    <header id="home">
+        <nav id="navBar">
+            <div class="row">
+                <a href="#home">
+                    <img class="logo" src="recources/img/logoTitle.png" alt="Search for blood">
+                </a>
+                <div class="mainNav">
+                    <ul>
+                        <li><a href="#home" class="item active"> <i class="fa fa-home"></i> home</a></li>
+                        <li><a href="#search" class="item"> <i class="fa fa-search"></i> search</a></li>
+                        <li><a href="#information" class="item"> <i class="far fa-question-circle"></i> information</a></li>
+                        <li><a href="#" class="item"> <i class="fas fa-hand-holding-water"></i> donor list</a></li>
+                        <li><a href="#contact" class="item"> <i class="fas fa-handshake"></i> contact us</a></li>
+                        <li><a href="#" class="item openPopup"> <i class="fas fa-user-tie"></i> profile</a></li>
+                    </ul>
+                </div>
+                <span class="mobileMenuIcon" onclick="openMobileMenu()"><i class="fas fa-bars"></i></span>
+            </div>
+        </nav>
+        <div class="mobileMenu" id="mobileMenu">
+            <span class="closeMobileMenu" onclick="closeMobileMenu()"> &#10006; </span>
+            <div class="mobileMenuList">
+                <a href="#home" onclick="closeMobileMenu()"> <i class="fa fa-home"></i> home</a>
+                <a href="#search" onclick="closeMobileMenu()"> <i class="fa fa-search"></i> search</a>
+                <a href="#information" onclick="closeMobileMenu()"> <i class="far fa-question-circle"></i> information</a>
+                <a href="#" onclick="closeMobileMenu()"> <i class="fas fa-hand-holding-water"></i> donor list</a>
+                <a href="#contact" onclick="closeMobileMenu()"> <i class="fas fa-handshake"></i> contact us</a>
+                <a href="#" class="openPopup2" onclick="closeMobileMenu()"> <i class="fas fa-user-tie"></i> profile</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="popupForm" id="popupForm">
+                <span id="closePopup"> &#10006; </span>
+                <div class="signInSignUp">
+                    <!--Sign In page to Sign Up page transfer HTML here--> 
+                    <input type="radio" id="titleSignIn" name="transfer" style="display:none" checked> 
+                    <input type="radio" id="titleSignUp" name="transfer" style="display:none"> 
+                    <div class="transferButton"> 
+                        <label for="titleSignIn">
+                            SIGN IN 
+                        </label> 
+                        <label for="titleSignUp">
+                            SIGN UP 
+                        </label> 
+                    </div> 
+                    <!--Sign In form HTML here--> 
+                    <form class="signInForm" onsubmit="return validar()" autocomplete="on">
+                        <i class="fas fa-user-tie signInIcon"></i> 
+                        <div class="inputField"> 
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" placeholder="enter mobile number *" required>
+                        </div> 
+                        <div class="inputField">
+                            <i class="fas fa-key"></i> 
+                            <input type="password" id="password" placeholder="enter password *" required>  
+                            <span class="showHidePass">
+                                <i onclick="showHideFunction()" class="fas fa-eye" id="eye"> </i>
+                            </span> 
+                        </div> 
+                        <p>Forgot your password?</p> 
+                        <input class="btn btnSignIn" type="submit" value="SIGN IN">
+                        <span class="dontHave">
+                            Don't have an account?
+                            <label for="titleSignUp">
+                                SIGN UP HERE
+                            </label>
+                        </span>
+                    </form>
+                    <!--Sign Up form HTML here--> 
+                    <form class="signUpForm" onsubmit="return validar1()" autocomplete="on">
+                        <div class="nameNumber">
+                            <div class="col span_1_of_2 inputField">
+                                <i class="fas fa-user-tie"></i> 
+                                <input class="name" type="text" placeholder="enter your name *" required> 
+                            </div>
+                            <div class="col span_1_of_2 inputField">
+                                <i class="fas fa-phone"></i> 
+                                <input type="tel" placeholder="enter mobile number *" required> 
+                            </div>
+                        </div>
+                        <div class="bloodLocation">
+                            <div class="col span_1_of_2 inputField"> 
+                                <div class="optValue">
+                                    <i class="fas fa-tint"></i>
+                                    <select class="bloodGroup" name="Blood_Group" required>
+                                        <option value="" disabled hidden selected> Select Blood Group * </option>
+                                        <option value="A+"> A positive (A+) </option>
+                                        <option value="A-"> A negative (A-) </option>
+                                        <option value="B+"> B positive (B+) </option>
+                                        <option value="B-"> B negative (B-) </option>
+                                        <option value="O+"> O positive (O+) </option>
+                                        <option value="O-"> O negative (O-) </option>
+                                        <option value="AB+"> AB positive (AB+) </option>
+                                        <option value="AB-"> AB negative (AB-) </option>
+                                    </select>
+                                </div> 
+                            </div> 
+                            <div class="col span_1_of_2 inputField">
+                                <div class="optValue">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <select class="locationGroup" name="Location" required>
+                                        <option value="" disabled hidden selected> Select Location * </option>
+                                        <option value="Bagerhat">Bagerhat District</option>
+                                        <option value="Bandarban">Bandarban District</option>
+                                        <option value="Barguna">Barguna District</option>
+                                        <option value="Barishal">Barishal District</option>
+                                        <option value="Bhola">Bhola District</option>
+                                        <option value="Bogura">Bogura District</option>
+                                        <option value="Brahmanbaria">Brahmanbaria District</option>
+                                        <option value="Chandpur">Chandpur District</option>
+                                        <option value="Chapainawabganj">Chapainawabganj District</option>
+                                        <option value="Chattogram">Chattogram District</option>
+                                        <option value="Chuadanga">Chuadanga District</option>
+                                        <option value="Cumilla">Cumilla District</option>
+                                        <option value="Coxs Bazar">Cox's Bazar District</option>
+                                        <option value="Dhaka">Dhaka District</option>
+                                        <option value="Dinajpur">Dinajpur District</option>
+                                        <option value="Faridpur">Faridpur District</option>
+                                        <option value="Feni">Feni District</option>
+                                        <option value="Gaibandha">Gaibandha District</option>
+                                        <option value="Gazipur">Gazipur District</option>
+                                        <option value="Gopalganj">Gopalganj District</option>
+                                        <option value="Habiganj">Habiganj District</option>
+                                        <option value="Jamalpur">Jamalpur District</option>
+                                        <option value="Jashore">Jashore District</option>
+                                        <option value="Jhalokati">Jhalokati District</option>
+                                        <option value="Jhenaidah">Jhenaidah District</option>
+                                        <option value="Joypurhat">Joypurhat District</option>
+                                        <option value="Khagrachhari">Khagrachhari District</option>
+                                        <option value="Khulna">Khulna District</option>
+                                        <option value="Kishoreganj">Kishoreganj District</option>
+                                        <option value="Kurigram">Kurigram District</option>
+                                        <option value="Kushtia">Kushtia District</option>
+                                        <option value="Lakshmipur">Lakshmipur District</option>
+                                        <option value="Lalmonirhat">Lalmonirhat District</option>
+                                        <option value="Madaripur">Madaripur District</option>
+                                        <option value="Magura">Magura District</option>
+                                        <option value="Manikganj">Manikganj District</option>
+                                        <option value="Meherpur">Meherpur District</option>
+                                        <option value="Moulvibazar">Moulvibazar District</option>
+                                        <option value="Munshiganj">Munshiganj District</option>
+                                        <option value="Mymensingh">Mymensingh District</option>
+                                        <option value="Naogaon">Naogaon District</option>
+                                        <option value="Natore">Natore District</option>
+                                        <option value="Narail">Narail District</option>
+                                        <option value="Narayanganj">Narayanganj District</option>
+                                        <option value="Narsingdi">Narsingdi District</option>
+                                        <option value="Netrokona">Netrokona District</option>
+                                        <option value="Nilphamari">Nilphamari District</option>
+                                        <option value="Noakhali">Noakhali District</option>
+                                        <option value="Pabna">Pabna District</option>
+                                        <option value="Panchagarh">Panchagarh District</option>
+                                        <option value="Patuakhali">Patuakhali District</option>
+                                        <option value="Pirojpur">Pirojpur District</option>
+                                        <option value="Rajbari">Rajbari District</option>
+                                        <option value="Rajshahi">Rajshahi District</option>
+                                        <option value="Rangamati">Rangamati District</option>
+                                        <option value="Rangpur">Rangpur District</option>
+                                        <option value="Satkhira">Satkhira District</option>
+                                        <option value="Shariatpur">Shariatpur District</option>
+                                        <option value="Sherpur">Sherpur District</option>
+                                        <option value="Sirajganj">Sirajganj District</option>
+                                        <option value="Sunamganj">Sunamganj District</option>
+                                        <option value="Sylhet">Sylhet District</option>
+                                        <option value>Tangail District</option>
+                                        <option value="Thakurgaon">Thakurgaon District</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newConfirm">
+                            <div class="col span_1_of_2 inputField"> 
+                                <i class="fas fa-lock"></i> 
+                                <input id="newPassword" type="password" placeholder="enter password *" required> 
+                                <span class="showHidePass"> 
+                                    <i onclick="showHideFunction1()" class="fas fa-eye" id="eye1"> </i> 
+                                </span> 
+                            </div> 
+                            <div class="col span_1_of_2 inputField"> 
+                                <i class="fas fa-lock"></i> 
+                                <input id="confirmPassword" type="password" placeholder="retype password *" required> 
+                                <span class="showHidePass">
+                                    <i onclick="showHideFunction2()" class="fas fa-eye" id="eye2"> </i>
+                                </span> 
+                            </div>
+                        </div>
+                        <input class="btn btnSignUp" type="submit" value="SIGN UP"> <input class="btnReset" type="reset" value="reset">
+                        <span class="alreadyHave">Already have an account?
+                            <label for="titleSignIn">
+                                SIGN IN HERE 
+                            </label>
+                        </span> 
+                    </form>
+                </div> 
+            </div>
+        </div>
+        <div class="row heading">
+            <div class="animatedHeading">
+                <h1> <span class="typewrite" data-period="600" data-type='[ "select blood group", "select location", "then....", "search for blood" ]'></span> </h1>
+                <a href="#search" class="btn btnHead"> <i class="fab fa-sistrix"></i> search for blood</a>
+            </div>
+            <div class="banner">
+                <img src="recources/img/giveBlood.png" alt="রক্ত দিন, জীবন বাঁচান">
+            </div>
+        </div>
+    </header>
+
+    <!-- END HEADER SECTION-->
+
+
+
+
+    <!-- START SEARCH SECTION -->
+
+    <section class="searchSection" id="search">
+        <div class="row">
+            <h2>
+                <span id="parent"> search here
+                    <span id="border1" class="animatedBorder"></span>
+                    <span id="border2" class="animatedBorder"></span>
+                    <span id="border3" class="animatedBorder"></span>
+                    <span id="border4" class="animatedBorder"></span>
+                    <span id="border5" class="animatedBorder"></span>
+                    <span id="border6" class="animatedBorder"></span>
+                    <span id="border7" class="animatedBorder"></span>
+                    <span id="border8" class="animatedBorder"></span>
+                    <span id="border9" class="animatedBorder"></span>
+                </span>
+            </h2>
+            <div class="searchBar">
+                <div class="searchOption">
+                    <div class="optValue">
+                        <i class="fas fa-tint"></i>
+                        <select class="bloodGroup" name="Blood_Group" required>
+                            <option value="" disabled hidden selected> Select Blood Group * </option>
+                            <option value="A+"> A positive (A+) </option>
+                            <option value="A-"> A negative (A-) </option>
+                            <option value="B+"> B positive (B+) </option>
+                            <option value="B-"> B negative (B-) </option>
+                            <option value="O+"> O positive (O+) </option>
+                            <option value="O-"> O negative (O-) </option>
+                            <option value="AB+"> AB positive (AB+) </option>
+                            <option value="AB-"> AB negative (AB-) </option>
+                        </select>
+                    </div>
+                    <div class="optValue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select class="locationGroup" name="Location" required>
+                            <option value="" disabled hidden selected> Select Location * </option>
+                            <option value="Bagerhat">Bagerhat District</option>
+                            <option value="Bandarban">Bandarban District</option>
+                            <option value="Barguna">Barguna District</option>
+                            <option value="Barishal">Barishal District</option>
+                            <option value="Bhola">Bhola District</option>
+                            <option value="Bogura">Bogura District</option>
+                            <option value="Brahmanbaria">Brahmanbaria District</option>
+                            <option value="Chandpur">Chandpur District</option>
+                            <option value="Chapainawabganj">Chapainawabganj District</option>
+                            <option value="Chattogram">Chattogram District</option>
+                            <option value="Chuadanga">Chuadanga District</option>
+                            <option value="Cumilla">Cumilla District</option>
+                            <option value="Coxs Bazar">Cox's Bazar District</option>
+                            <option value="Dhaka">Dhaka District</option>
+                            <option value="Dinajpur">Dinajpur District</option>
+                            <option value="Faridpur">Faridpur District</option>
+                            <option value="Feni">Feni District</option>
+                            <option value="Gaibandha">Gaibandha District</option>
+                            <option value="Gazipur">Gazipur District</option>
+                            <option value="Gopalganj">Gopalganj District</option>
+                            <option value="Habiganj">Habiganj District</option>
+                            <option value="Jamalpur">Jamalpur District</option>
+                            <option value="Jashore">Jashore District</option>
+                            <option value="Jhalokati">Jhalokati District</option>
+                            <option value="Jhenaidah">Jhenaidah District</option>
+                            <option value="Joypurhat">Joypurhat District</option>
+                            <option value="Khagrachhari">Khagrachhari District</option>
+                            <option value="Khulna">Khulna District</option>
+                            <option value="Kishoreganj">Kishoreganj District</option>
+                            <option value="Kurigram">Kurigram District</option>
+                            <option value="Kushtia">Kushtia District</option>
+                            <option value="Lakshmipur">Lakshmipur District</option>
+                            <option value="Lalmonirhat">Lalmonirhat District</option>
+                            <option value="Madaripur">Madaripur District</option>
+                            <option value="Magura">Magura District</option>
+                            <option value="Manikganj">Manikganj District</option>
+                            <option value="Meherpur">Meherpur District</option>
+                            <option value="Moulvibazar">Moulvibazar District</option>
+                            <option value="Munshiganj">Munshiganj District</option>
+                            <option value="Mymensingh">Mymensingh District</option>
+                            <option value="Naogaon">Naogaon District</option>
+                            <option value="Natore">Natore District</option>
+                            <option value="Narail">Narail District</option>
+                            <option value="Narayanganj">Narayanganj District</option>
+                            <option value="Narsingdi">Narsingdi District</option>
+                            <option value="Netrokona">Netrokona District</option>
+                            <option value="Nilphamari">Nilphamari District</option>
+                            <option value="Noakhali">Noakhali District</option>
+                            <option value="Pabna">Pabna District</option>
+                            <option value="Panchagarh">Panchagarh District</option>
+                            <option value="Patuakhali">Patuakhali District</option>
+                            <option value="Pirojpur">Pirojpur District</option>
+                            <option value="Rajbari">Rajbari District</option>
+                            <option value="Rajshahi">Rajshahi District</option>
+                            <option value="Rangamati">Rangamati District</option>
+                            <option value="Rangpur">Rangpur District</option>
+                            <option value="Satkhira">Satkhira District</option>
+                            <option value="Shariatpur">Shariatpur District</option>
+                            <option value="Sherpur">Sherpur District</option>
+                            <option value="Sirajganj">Sirajganj District</option>
+                            <option value="Sunamganj">Sunamganj District</option>
+                            <option value="Sylhet">Sylhet District</option>
+                            <option value>Tangail District</option>
+                            <option value="Thakurgaon">Thakurgaon District</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btnSearch" type="submit">
+                    <i class="fas fa-search"></i>
+                    SEARCH
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- END SEARCH SECTION SECTION-->
+
+
+
+
+    <!-- START INFO SECTION-->
+    
+    <section class="infoSection" id="information">
+        <div class="row">
+            <h2>information you need</h2>
+            <div class="col span_1_of_3 box">
+                <h3> instructions for donor </h3>
+                <ul class="whiteSpace">
+                    <li> &#10003; Get plenty of sleep the night before you plan to donate.</li>
+                    <li> &#10003; Eat a healthy meal before your donation.</li>
+                    <li> &#10003; Avoid fatty foods, such as hamburgers, french fries or ice cream before donating.</li>
+                    <li> &#10003; Drink an extra 16 ounces (473 ml) of water and other fluids before the donation.</li>
+                    <li> &#10003; A platelet donor must not take aspirin for two days prior to donating. </li>
+                </ul>
+            </div>
+            
+            <div class="col span_1_of_3 box">
+                <h3> Benefits of Blood Donation </h3>
+                <ul class="whiteSpace">
+                    <li> &#10003; Reduce harmful iron stores.</li>
+                    <li> &#10003; Preserve cardiovascular health.</li>
+                    <li> &#10003; Reduce the risk cancer.</li>
+                    <li> &#10003; Burn calories.</li>
+                    <li> &#10003; Give you a sense of pride</li>
+                    <li> &#10003; Free blood analysis, include : hepatitis B, hepatitis C, HIV, West Nile virus, Trypanosoma cruzi, syphilis.</li>
+                </ul>
+            </div>
+            
+            <div class="col span_1_of_3 box">
+                <h3> Who Can Donate Blood? </h3>
+                <ul>
+                    <li> <b>Age :</b> At least 17 years old.</li>
+                    <li> <b>High Blood Pressure :</b> Below 180 systolic and below 100 diastolic at the time of donation.</li>
+                    <li> <b>Body Piercing :</b> Have not a tongue, nose, belly button or genital piercing in the past 12 months.</li>
+                    <li> <b>Cold and Flu : </b> After completed antibiotic treatment.</li>
+                    <li> <b>MSM :</b> Men who have had sex with other men can not donate.</li>
+                    <li> <b>Tattoos :</b> One-year deferral.</li>
+                    <li> <b>Weight :</b> Weight at least 110 pounds or 50 kg.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- END INFO SECTION-->
+
+
+
+
+    <!-- START CONTACT SECTION-->
+    
+    <section class="contactSection" id="contact">
+        <div class="row">
+            <h2>get in touch</h2>
+            <div class="row">
+                <form action="sakibrisa@gmail.com" method="post" id="formMassage">
+                    <div class="row">
+                        <div class="senderInfo">
+                            <div class="senderName">
+                                <input type="text" name="Name" placeholder="Your Name *" required>
+                            </div>
+                            <div class="senderEmail">
+                                <input type="email" name="Email" placeholder="Your Email *" required>
+                            </div>
+                        </div>
+                        <div class="senderMessage">
+                            <textarea name="Message" cols="30" rows="8" placeholder="Your Message *" required></textarea>
+                        </div>
+                        <div class="btnContact">
+                            <button type="submit" form="formMassage" formaction="sakibrisa@gmail.com" class="btn"><i class="fa fa-paper-plane"></i> send message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- END CONTACT SECTION-->
+
+
+
+
+
+    <!-- START FOOTER SECTION-->
+    
+    <footer>
+        <div class="row">
+            <div class="col span_1_of_4">
+                <h3>about me</h3>
+                <ul>
+                    <li><b> name : </b> sakib ahmed </li>
+                    <li><b> address : </b> chandpur, chattogram, bangladesh </li>
+                    <li><b> academic qualification : </b>studying BSc under university of dhaka </li>
+                </ul>
+            </div>
+            
+            <div class="col span_1_of_4 contactMe">
+                <h3>contact me</h3>
+                <ul>
+                    <li class="mail"><a href="mailto:sakibrisa@gmail.com"><i id="gmail" class="fas fa-envelope"></i></a><b> email : </b> sakibrisa@gmail.com </li>
+                    <li><a href="tel:+8801869680796"><i id="phone" class="fas fa-phone-alt"></i></a><b> phone : </b>880 1869 680 796 </li>
+                </ul>
+                <div class="borderSocial"></div>
+                <div class="socialIcon">
+                    <a href="fb://profile/100007187625760" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://m.me/skb552" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="http://api.whatsapp.com/send?phone=8801869680796" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            
+            <div class="col span_1_of_4">
+                <h3>thanks to</h3>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Nesciunt tempore dolorum quibusdam qui quasi necessitatibus</li>
+                    <li>expedita voluptate tenetur aut deleniti est neque dolor ab impedit nostrum!</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; copyright : sakib ahmed
+        </div>
+    </footer>
+    
+    <!-- END FOOTER SECTION-->
+
+
+
+
+
+
+
+    <!-- JS SCRIPT -->
+    <script src="vendors/js/html5shiv.min.js"></script>
+    <script src="vendors/js/respond.min.js"></script>
+    <script src="recources/js/script.js"></script>
+
+
+</body>
+
+</html>
